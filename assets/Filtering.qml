@@ -1,3 +1,19 @@
+/* Copyright (c) 2013 Chad Tetreault
+ * http://palebanana.com - @chadtatro
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import bb.cascades 1.0
 import bb.data 1.0
 
@@ -61,10 +77,11 @@ BasePage {
                 onMessageReceived: {
                     var data = message.data;
 
+                    // filtering completed
                     if (data === 'filter-done') {
                         resetMama();
 
-                        // is this a base64 encoded image?
+                        // is this a base64 encoded image sent to us from the webview for saving/sharing?
                     } else if (data.indexOf('data:image/png;base64,') > -1) {
 
                         // save the photo
@@ -73,8 +90,6 @@ BasePage {
 
                         if (filePath) {
                             fileSaved = true;
-                            //var newPhoto = Array();
-                            //newPhoto[0] = "file://" + filePath;
                         }
 
                         // share file
@@ -90,7 +105,7 @@ BasePage {
             } // end webview
         } // end scrollview
 
-        // background - thumbnails
+        // background image for filter thumbnails
         ImageView {
             id: backgroundFiltersImg
             imageSource: "asset:///images/background-filters.png"
@@ -119,14 +134,11 @@ BasePage {
                 headerMode: ListHeaderMode.None
             }
 
-            function itemType(data, indexPath) {
-                return "item"
-            }
-
             dataModel: ArrayDataModel {
                 id: theDataModel
             }
 
+			// set image source of the listItem
             function setImageSource(filter) {
                 if (filter.type == "default") {
                     return filter.thumbnail;
@@ -135,9 +147,11 @@ BasePage {
                 }
             }
 
+            // what happens when you click on a thumbnail
             function handleFilterClick(filterData, filterItem) {
                 spinnerOn();
 
+                // reset the old active thumbnail's opacity
                 if (activeThumb !== "") {
                     activeThumb.opacity = 1;
                 }

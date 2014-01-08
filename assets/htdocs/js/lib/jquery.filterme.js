@@ -5,6 +5,7 @@
  * @author Matthew Ruddy
  * @version 1.0
  */
+
 (function($) {
 
     /*

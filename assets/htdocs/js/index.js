@@ -1,17 +1,18 @@
-function test() {
-
-    var filter = {
-        curves: "inkwell",
-        desaturate: false,
-        vignette: false
-    };
-
-    $('#the-photo').filterMe(
-        filter
-    );
-
-
-}
+/* Copyright (c) 2013 Chad Tetreault
+ * http://palebanana.com - @chadtatro
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /* ==================================================
  *      GLOBALS
@@ -20,7 +21,6 @@ function test() {
 
 App = {};
 Settings = {};
-
 b64Cache = [];
 
 filtering = false;
@@ -31,8 +31,7 @@ var theCanvas = document.getElementById('canvas');
 theCanvas.style.width = window.innerWidth;
 theCanvas.style.height = window.innerWidth;
 
-filterPackInstalledVersion = window.localStorage.getItem('filterPackInstalledVersion') || 0;
-filterPackNewVersion = window.localStorage.getItem('filterPackNewVersion') || 0;
+
 
 /* ==================================================
  *      HANDLE NATIVE CHIT-CHAT
@@ -58,7 +57,6 @@ try {
                 setTimeout(function() {
                     filtering = true;
                     process(message.data);
-                    console.log(message.data);
                 }, 350);
             } else {
                 return;
@@ -76,7 +74,6 @@ try {
 
 var savePhoto = function() {
     var b64 = thePhoto.src;
-    //b64 = b64.replace('data:image/png;base64,', '');
     navigator.cascades.postMessage(b64);
 };
 
@@ -89,10 +86,9 @@ var savePhoto = function() {
 
 var process = function(effect) {
     filterId = effect.id;
-    if (effect.id === 'normal') {
-        console.log('no filter - reset the photo');
 
-        // reset photo source
+    // normal filter, reset the image source
+    if (effect.id === 'normal') {
         thePhoto.src = b64Cache['normal'];
         navigator.cascades.postMessage('filter-done');
         filtering = false;
@@ -100,21 +96,19 @@ var process = function(effect) {
 
     } else {
 
-        // if filter already applied and cached
+        // if filter already applied and cached, change the image source to cahced base64 data
         if (b64Cache[effect.id]) {
-            console.log('--- filter already cahced ---');
             thePhoto.src = b64Cache[effect.id];
             filtering = false;
-            console.log('--- done filtering ---');
             setTimeout(function() {
                 navigator.cascades.postMessage('filter-done');
             }, 250);
 
-            // if not, filter it!
+        // filter not cached, filter the image now
         } else {
 
+            // build the curves array if needed
             if (effect.filter.curves) {
-                console.log('make curves an array');
                 var a = effect.filter.curves.a;
                 var r = effect.filter.curves.r;
                 var g = effect.filter.curves.g;
@@ -132,10 +126,12 @@ var process = function(effect) {
                     "b": b[0]
                 };
 
+            // not using curves for this filter, set to false
             } else {
                 curvesObject = false;
             }
 
+            // build the filter object which we send to filter.me
             var filter = {
                 curves: curvesObject,
                 desaturate: effect.filter.desaturate,
@@ -148,11 +144,10 @@ var process = function(effect) {
                     filter
                 );
 
-                // process callback
+                // 'done filtering' callback
                 $(this).bind('filterMe.processEnd', function(event, base) {
                     filtering = false;
                     b64Cache[filterId] = thePhoto.src;
-                    console.log('--- done filtering ---');
                     navigator.cascades.postMessage('filter-done');
                 });
             });
@@ -163,31 +158,25 @@ var process = function(effect) {
 
 
 /* ==================================================
- *      LOAD, RESCALE, AND CREATE THE PHOTO INSTANCE
+ *      LOAD, RESCALE, AND CREATE THE PHOTO
  * ==================================================
  */
 
 var prepareImage = function(filepath, success, error) {
-    console.log('[prepare image]');
     setTimeout(function() {
         var canvas = jQuery('canvas').get(0);
         var ctx = canvas.getContext('2d');
+
+        // we want a square image
         canvas.width = window.innerWidth;
         canvas.height = window.innerWidth;
         ctx.drawImage(thePhoto, 0, 0, canvas.width, canvas.height);
+
+        // clear the cache if it exists, and set the 'normal' image data
         b64Cache = [];
         b64Cache['normal'] = canvas.toDataURL('image/png');
+
+        // set the photo source
         thePhoto.src = b64Cache['normal'];
     }, 100);
-};
-
-
-
-/* ==================================================
- *          CONSOLE LOGS
- * ==================================================
- */
-
-var log = function log(msg) {
-    console.log('[  ' + msg + '  ]');
 };

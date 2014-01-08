@@ -1,3 +1,19 @@
+/* Copyright (c) 2013 Chad Tetreault
+ * http://palebanana.com - @chadtatro
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import bb.cascades 1.0
 
 Sheet {
@@ -41,7 +57,7 @@ Sheet {
 
                 Label {
                     id: labelAbout
-                    text: "Filtermama is brought to you by @chadtatro. It combines the flexibility of JavaScript, and the power of Cascades to deliver a true \"Hybrid\" application.\n\nSpecial thanks goes out to Kyle Fowler (@kfow35), Jerome Carty (@jcarty), Anzor Bashkhaz @anzorb), and Isaac Gordezky for getting me past roadblocks along the way. I'm sure that I'm forgetting somebody here, sorry brah. :S\n"
+                    text: "Filtermama Lite is brought to you by @chadtatro. It combines the flexibility of JavaScript, and the power of Cascades to deliver a true \"Hybrid\" application.\n\nSpecial thanks goes out to Kyle Fowler (@kfow35), Jerome Carty (@jcarty), Anzor Bashkhaz @anzorb), and Isaac Gordezky for getting me past roadblocks along the way. I'm sure that I'm forgetting somebody here, sorry brah. :S\n"
                     textStyle.fontSize: FontSize.PointValue
                     textStyle.fontSizeValue: 8
                     textStyle.fontWeight: FontWeight.W100
@@ -62,9 +78,7 @@ Sheet {
                     textFormat: TextFormat.Html
                     textStyle.color: Color.Gray
                     textStyle.fontStyle: FontStyle.Italic
-
                 }
-
             }
         }
     }
