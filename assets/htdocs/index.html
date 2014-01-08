@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Filtermama</title>
+
+    <!-- meta setup -->
+    <script>
+    var meta = document.createElement("meta");
+    meta.setAttribute('name', 'viewport');
+    meta.setAttribute('content', 'initial-scale=' + (1 / window.devicePixelRatio) + ',user-scalable=no');
+    document.getElementsByTagName('head')[0].appendChild(meta);
+    </script>
+
+    <!-- style sheets -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+    <div id="App">
+    <canvas id="canvas"></canvas>
+    <img id="the-photo" src="../images/blank.png"/>
+    <!-- <img onclick="test();" style="width: 720px !important; height: 720px !important;" id="the-photo" class="filter" data-filter="1977" src="temp-photo.png"/> -->
+    </div><!-- end of App -->
+
+    <!-- core -->
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/jquery.filterme.js"></script>
+
+    <!-- app -->
+    <script src="js/index.js"></script>
+
+</body>
+</html>
