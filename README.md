@@ -18,7 +18,14 @@ The sample code for this application is Open Source under the [Apache 2.0 Licens
 
 **Built for BlackBerry**
 
-Filtermama has passed testing, and is now designated as a [Built for BlackBerry](http://developer.blackberry.com/builtforblackberry/) app.
+Filtermama has passed testing, and is designated as a [Built for BlackBerry](http://developer.blackberry.com/builtforblackberry/) app. I used the Built for BlackBerry boilerplate to get started quick. There are two Cascades versions available.
+
+* [10.2 BfB Boilerplate](https://github.com/blackberry/Cascades-Samples/tree/master/BfB-Boilerplate-10.2)
+* [10.1 BfB Boilerplate](https://github.com/blackberry/Cascades-Samples/tree/master/BfB-Boilerplate-10.1)
+
+**Hybrid Apps**
+
+To learn more about creating Hybrid apps for BlackBerry 10, check-out [Anzor Bashkhaz's](https://twitter.com/anzor_b) blog series on the BlackBerry DevBlog: [Hybrid Apps for BlackBerry 10](http://devblog.blackberry.com/2014/01/hybrid-apps-for-blackberry-10-an-introduction/).
 
 **Attributions**
 
@@ -36,7 +43,7 @@ Big shout-outs to the following people, for helping me get past roadblocks along
 
 * [Kyle Fowler](http://www.twitter.com/kfow35)
 * [Jerome Carty](http://www.twitter.com/jcarty)
-* [Anzor Bashkhaz](http://www.twitter.com/anzorb)
+* [Anzor Bashkhaz](http://www.twitter.com/anzor_b)
 * [Isaac Gordezky](https://github.com/igordezky)
 
 ## Screenshots ##
