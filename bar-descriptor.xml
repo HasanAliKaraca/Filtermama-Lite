@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <qnx xmlns="http://www.qnx.com/schemas/application/1.0">
-    <id>com.ctetreault.filtermamaasf2</id>
+    <id>com.ctetreault.filtermamalite</id>
     <versionNumber>2.0.1</versionNumber>
     <buildId>2</buildId>
     <author>ShakeDatApps</author>
@@ -41,7 +41,7 @@
 
 	<cascadesTheme>dark</cascadesTheme>
  <category>core.media</category>
- <name>Filtermama ASF2</name>
+ <name>Filtermama Lite</name>
  <splashScreens>
     <image>splash-720x720.png</image>
     <image>splash-720x1280.png</image>

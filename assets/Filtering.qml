@@ -142,9 +142,7 @@ BasePage {
             function setImageSource(filter) {
                 if (filter.type == "default") {
                     return filter.thumbnail;
-                } else {
-                    return dirPaths.data + filter.thumbnail;
-                }
+                } 
             }
 
             // what happens when you click on a thumbnail

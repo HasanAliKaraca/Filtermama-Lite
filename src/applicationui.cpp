@@ -85,10 +85,6 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app) :
 	dirPaths->insert("assets",
 			QVariant(QString("file://" + workingDir + "/app/native/assets/")));
 
-	// data path
-	dirPaths->insert("data",
-			QVariant(QString("file://" + workingDir + "/data/filterpacks/")));
-
 	// Expose 'dirPaths' to QML
 	qml->setContextProperty("dirPaths", dirPaths);
 
@@ -139,8 +135,8 @@ QString ApplicationUI::savePhoto(const QString& base64) {
 	QString timestamp = QString::number(
 			QDateTime::currentMSecsSinceEpoch() / 1000);
 
-	QString photoDirPath = appFolder + "shared/photos/filtermama-asf2/";
-	QString thumbDirPath = appFolder + "shared/photos/filtermama-asf2/.tmp/";
+	QString photoDirPath = appFolder + "shared/photos/filtermama-lite/";
+	QString thumbDirPath = appFolder + "shared/photos/filtermama-lite/.tmp/";
 
 	QDir appDir(photoDirPath);
 	QDir appTempDir(thumbDirPath);
@@ -156,10 +152,10 @@ QString ApplicationUI::savePhoto(const QString& base64) {
 	}
 
 	// build fullsize photo path
-	fullsizePath = photoDirPath + "fm-asf2-" + timestamp + ".png";
+	fullsizePath = photoDirPath + "fm-lite-" + timestamp + ".png";
 
 	// build thumbnail path
-	thumbnailPath = thumbDirPath + "fm-asf2-" + timestamp + ".png";
+	thumbnailPath = thumbDirPath + "fm-lite-" + timestamp + ".png";
 
 	// save the fullsize image
 	QImage fullsizeImage;
@@ -223,8 +219,8 @@ QString ApplicationUI::getPhotos() const {
 	QString appFolder(QDir::homePath());
 	appFolder.chop(4);
 
-	QString photoDirPath = appFolder + "shared/photos/filtermama-asf2/";
-	QString thumbDirPath = appFolder + "shared/photos/filtermama-asf2/.tmp/";
+	QString photoDirPath = appFolder + "shared/photos/filtermama-lite/";
+	QString thumbDirPath = appFolder + "shared/photos/filtermama-lite/.tmp/";
 
 	QDirIterator it(thumbDirPath, QDirIterator::Subdirectories);
 	QString photos;

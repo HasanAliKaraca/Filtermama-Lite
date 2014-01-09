@@ -104,7 +104,7 @@ var process = function(effect) {
                 navigator.cascades.postMessage('filter-done');
             }, 250);
 
-        // filter not cached, filter the image now
+            // filter not cached, filter the image now
         } else {
 
             // build the curves array if needed
@@ -126,7 +126,7 @@ var process = function(effect) {
                     "b": b[0]
                 };
 
-            // not using curves for this filter, set to false
+                // not using curves for this filter, set to false
             } else {
                 curvesObject = false;
             }
