@@ -28,13 +28,14 @@ BasePage {
     // feed thumbnail listView
     ListView {
         id: photosList
-        property alias feedDataModel: feedDataModel
         verticalAlignment: VerticalAlignment.Top
         horizontalAlignment: HorizontalAlignment.Left
         scrollIndicatorMode: ScrollIndicatorMode.Default
         snapMode: SnapMode.None
         flickMode: FlickMode.Momentum
         bufferedScrollingEnabled: true
+
+        property alias feedDataModel: feedDataModel
 
         onCreationCompleted: {
             app.photosChanged.connect(addThumbToDataModel)
@@ -46,11 +47,15 @@ BasePage {
             columnCount: 3
         }
 
+        function itemType(data, indexPath) {
+            return "item";
+        }
+
         dataModel: ArrayDataModel {
             id: feedDataModel
         }
 
-		// do this when a thumbnail is clicked
+        // do this when a thumbnail is clicked
         function handleThumbClick(thumbData) {
             var path = thumbData.replace(".tmp/", "");
             app.invokePhotoViewer(path);
@@ -62,7 +67,7 @@ BasePage {
             feedDataModel.insert(0, newThumb[0]);
         }
 
-		// load found thumbnails and insert into the feedDataModel
+        // load found thumbnails and insert into the feedDataModel
         function loadPhotos() {
             var photos = app.getPhotos();
             feedPhotos = photos.split(",");

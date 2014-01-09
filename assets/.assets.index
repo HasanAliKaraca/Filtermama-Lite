@@ -1,5 +1,5 @@
 1
-43
+40
 AboutSheet.qml
 BasePage.qml
 Feed.qml
@@ -23,14 +23,11 @@ htdocs/js/lib/jquery.js
 images/about-logo.png
 images/about.png
 images/background-body-fullsize.png
-images/background-body.png
 images/background-filters.png
 images/bbm.png
 images/blank.png
 images/camera.png
-images/cancel.png
 images/feed.png
-images/filters.png
 images/header-filtermama.png
 images/help.png
 images/icon.png

@@ -134,22 +134,24 @@ BasePage {
                 headerMode: ListHeaderMode.None
             }
 
+            function itemType(data, indexPath) {
+                return "item"
+            }
+
             dataModel: ArrayDataModel {
                 id: theDataModel
             }
 
-			// set image source of the listItem
+            // set image source of the listItem
             function setImageSource(filter) {
                 if (filter.type == "default") {
                     return filter.thumbnail;
-                } 
+                }
             }
 
-            // what happens when you click on a thumbnail
             function handleFilterClick(filterData, filterItem) {
                 spinnerOn();
 
-                // reset the old active thumbnail's opacity
                 if (activeThumb !== "") {
                     activeThumb.opacity = 1;
                 }
@@ -234,7 +236,6 @@ BasePage {
                 source: "asset:///filters/filters.json"
 
                 onDataLoaded: {
-                    // add each thumbnail to the dataModel
                     for (var i = 0; i < data.length; i ++) {
                         theDataModel.append(data[i])
                     }
@@ -288,10 +289,19 @@ BasePage {
         var message = JSON.stringify(msg);
         webview.postMessage(message);
 
-        // load default filters
         if (! thumbnailsLoaded) {
+
+            // load default filters
             dataSource.load();
-            thumbnailsLoaded = true;
+
+/*            // build the filter packs array
+            for (var i = 0; i < filterPacks.length; i ++) {
+                if (filterPacks[i] !== "") {
+                    dataSource.source = filterPacks[i];
+                    dataSource.load();
+                }
+            }
+*/            thumbnailsLoaded = true;
         }
 
         tabs.activeTab = tabProcess;
@@ -357,11 +367,11 @@ BasePage {
             onTriggered: {
                 shareOrSave = "share";
 
-                // if already saved, don't save again, just share
+                // if already saved, don't save, just share
                 if (fileSaved) {
                     app.shareFile(filePath);
 
-                    // not saved yet, let's do it like, now!!
+                    // not saved yet, let's do it now!!
                 } else {
                     spinnerOn();
 
@@ -375,5 +385,6 @@ BasePage {
                 }
             }
         }
+
     ]
 }
