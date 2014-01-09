@@ -273,4 +273,5 @@
 			<resource resourceType="PROJECT" workspacePath="/FiltermamaHybrid"/>
 		</configuration>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 </cproject>
