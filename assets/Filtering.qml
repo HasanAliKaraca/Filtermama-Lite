@@ -293,15 +293,7 @@ BasePage {
 
             // load default filters
             dataSource.load();
-
-/*            // build the filter packs array
-            for (var i = 0; i < filterPacks.length; i ++) {
-                if (filterPacks[i] !== "") {
-                    dataSource.source = filterPacks[i];
-                    dataSource.load();
-                }
-            }
-*/            thumbnailsLoaded = true;
+            thumbnailsLoaded = true;
         }
 
         tabs.activeTab = tabProcess;
