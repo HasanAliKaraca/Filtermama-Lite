@@ -4,7 +4,7 @@ Filtermama Lite, written by [@chadtatro](http://www.twitter.com/chadtatro) is a 
 
 The "full" version of [Filtermama](http://appworld.blackberry.com/webstore/content/27283379) is available for free in BlackBerry World.
 
-If you'd like to learn more about Hybrid apps, and specifically how I made Filtermama, a full write-up is available here: [FILTERMAMA LITE BLOG POST](http://palebanana.com)
+If you'd like to learn more about Hybrid apps, and specifically how I made Filtermama, a full write-up is available here: [Nobody puts Filtermama in the corner](http://palebanana.com/nobody-puts-filtermama-in-the-corner/)
 
 The sample code for this application is Open Source under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html).
 
