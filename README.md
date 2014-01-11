@@ -4,7 +4,7 @@ Filtermama Lite, written by [@chadtatro](http://www.twitter.com/chadtatro) is a 
 
 The "full" version of [Filtermama](http://appworld.blackberry.com/webstore/content/27283379) is available for free in BlackBerry World.
 
-If you'd like to learn more about Hybrid apps, and specifically how I made Filtermama, a full write-up is available here: [Nobody puts Filtermama in the corner](http://palebanana.com/nobody-puts-filtermama-in-the-corner/)
+If you'd like to learn more about Hybrid apps, and specifically how I made Filtermama, a full write-up is available here: [I've seen the future, and it's hybrid apps](http://palebanana.com/nobody-puts-filtermama-in-the-corner/)
 
 The sample code for this application is Open Source under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html).
 
@@ -12,7 +12,7 @@ The sample code for this application is Open Source under the [Apache 2.0 Licens
 
 * [BlackBerry 10.1 Native SDK](https://developer.blackberry.com/native/downloads/)
 
-**Author(s)** 
+**Author(s)**
 
 * [Chad Tetreault](http://www.twitter.com/chadtatro)
 
@@ -62,11 +62,11 @@ Big shout-outs to the following people, for helping me get past roadblocks along
 2. Launch BlackBerry 10 Native SDK, and from the File menu, select Import.
 3. Expand General, and select Existing Projects into Workspace. Click Next.
 4. Browse to the location where you extracted the sample file, and then click OK.
-5. The sample project should display in the Projects section. 
+5. The sample project should display in the Projects section.
    Click Finish to import the project into your workspace.
-6. In the Project Explorer pane, Right-click the project (for example hellocascades) 
+6. In the Project Explorer pane, Right-click the project (for example hellocascades)
    and select Build Project.
-7. In the Project Explorer pane, Right-click the project (for example hellocascades) 
+7. In the Project Explorer pane, Right-click the project (for example hellocascades)
    and select Run As > BlackBerry C/C++ Application.
 8. The application will now install and launch on your device. If it doesent you might
    have to [set up your environment](http://developer.blackberry.com/cascades/documentation/getting_started/setting_up.html).
